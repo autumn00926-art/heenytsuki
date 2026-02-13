@@ -277,13 +277,37 @@ nav {
     font-size: 11px;
     padding: 3px 6px;
     border-radius: 4px;
-    margin-left: 8px;
-    position: relative;
-    vertical-align: middle;
     font-weight: 400;
+    white-space: nowrap;
 }
 
-.point-tag::after {
+/* 데스크탑: 텍스트 아래 말풍선 */
+#gnb .point-tag {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#gnb .point-tag::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #00A9B5;
+}
+
+/* 모바일: 텍스트 오른쪽 말풍선 */
+.menu .point-tag {
+    position: relative;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.menu .point-tag::after {
     content: '';
     position: absolute;
     left: -4px;
