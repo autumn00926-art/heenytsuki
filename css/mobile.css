@@ -1,0 +1,33 @@
+@media screen and (max-width: 1200px) {
+    #header .m-btn {
+        display: block;
+    }
+
+    .pc-menu {
+        display: none;
+    }
+
+    #header .center {
+        justify-content: center;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    nav {
+        margin-left: auto;
+    }
+
+    .gnb {
+        width: 30px;
+    }
+
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+        /* 모바일: 2열 */
+    }
+}

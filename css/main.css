@@ -1,0 +1,460 @@
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* 헤더 영역 */
+#event {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10009;
+}
+
+#event .event-close-btn {
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#header {
+    width: 100%;
+
+    background-color: #fff;
+    padding: 50px 0 0px 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+}
+
+/* 1. 헤더 중앙 컨테이너 설정 */
+#header .center {
+    width: 80% !important;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* 로고 배치의 기준점이 됩니다 */
+    justify-content: space-between;
+    height: 60px;
+    /* 로고 높이에 맞춰 적절히 조절 */
+}
+
+/* 2. 로고 정중앙 배치 (가장 확실한 방법) */
+.logo {
+    width: 200px;
+    z-index: 10;
+}
+
+/* 3. 메뉴(로그인/카트)를 오른쪽 끝으로 밀기 */
+nav {
+    margin-left: 0;
+    /* 왼쪽의 모든 공간을 밀어내어 메뉴를 오른쪽 끝으로 보냅니다 */
+}
+
+#gnb {
+    display: flex;
+    gap: 40px;
+    /* 1920 화면에서는 너무 멀지 않게 간격 조정 */
+    margin-left: 0 !important;
+}
+
+#gnb>li a {
+    font-size: 22px;
+    color: #000;
+    position: relative;
+    transition: 0.3s;
+}
+
+
+/* active + hovering → active가 우선 */
+#gnb>li.active.hovering a {
+    color: #74eaff;
+}
+
+#gnb>li.active.hovering a::after {
+    background: #74eaff;
+}
+
+#header .m-btn {
+    width: 30px;
+    display: none;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10000;
+    /* 메뉴가 열렸을 때 그 위에 떠야 닫기 가능 */
+
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#header .m-btn {
+    margin-top: 20px;
+}
+
+#header .m-btn span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: all 0.3s;
+}
+
+/* 평소 상태 (3단 선) */
+#header .m-btn span:nth-child(1) {
+    top: 0;
+}
+
+#header .m-btn span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#header .m-btn span:nth-child(3) {
+    bottom: 0;
+}
+
+/* 활성화 상태 (X 모양) */
+#header .m-btn.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+#header .m-btn.active span:nth-child(2) {
+    opacity: 0;
+    /* 가운데 선은 사라짐 */
+}
+
+#header .m-btn.active span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+/*모바일 메뉴 밖에 나가 있는 상태로 처리*/
+#header .m-gnb {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    z-index: 9999;
+    /*밖에 나가 있음(자기 크기만큼 나감)*/
+    top: 90px;
+    transition: all 0.5s;
+
+    display: flex;
+    justify-content: flex-start;
+}
+
+/*모바일 메뉴 안으로 들어오게 클래스 이름 추가*/
+
+#header .m-gnb.move {
+    left: 0%;
+}
+
+.menu {
+    width: 300px;
+    padding-left: 10px;
+    background-color: #fff;
+}
+
+
+
+/*실제 클릭할 버튼메뉴 역할*/
+.menu>li>a {
+    display: block;
+    color: #000;
+    padding: 15px 10px;
+    background-color: #fff;
+    background-image: url(../images/ico-faq.png);
+    background-repeat: no-repeat;
+    background-position: right 20px top 20px;
+}
+
+.line1 {
+    background-color: #fff;
+    height: 1000px;
+}
+
+/*접었다 펼쳐지는 서브메뉴*/
+.menu .sub {
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s;
+    background: #000;
+}
+
+.sub li {
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    display: block;
+    border: none;
+}
+
+
+
+/* 모바일 메뉴 컨테이너 */
+.menu {
+    width: 300px;
+    padding: 20px 0 0 25px;
+    /* 왼쪽 여백을 주어 정렬 */
+    background-color: #fff;
+    height: 100%;
+}
+
+/* SHOP 타이틀 스타일 */
+.menu-category {
+    font-size: 18px;
+    /* 크기를 키움 */
+    font-weight: 700;
+    /* 굵게 설정 */
+    color: #000;
+    padding: 20px 10px 10px 0;
+    list-style: none;
+    letter-spacing: 1px;
+    /* 자간 조절 */
+}
+
+/* 하위 메뉴(OUTER, TOP 등) 스타일 */
+.menu li a.sub-menu {
+    font-size: 14px;
+    /* SHOP보다 작게 설정 */
+    font-weight: 500;
+    color: #333;
+    padding: 5px 10px;
+    /* 간격을 좁게 설정 */
+    background-image: none;
+    /* 기존 화살표 아이콘 제거 */
+    text-transform: uppercase;
+}
+
+/* 특정 메뉴 강조 (청록색) */
+.sub-menu.highlight {
+    color: #00A9B5;
+    /* 이미지의 포인트 컬러 */
+}
+
+/* 하단 일반 대문자 메뉴 (COLLECTION 등) */
+.menu li a.main-link {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 10px;
+    margin-top: 10px;
+    display: block;
+}
+
+/* 기존 배경 이미지 제거를 위한 초기화 */
+.menu>li>a {
+    background-image: none !important;
+}
+
+/* Login 옆 포인트 말풍선 */
+.point-tag {
+    background-color: #00A9B5;
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    position: relative;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+.point-tag::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 4px solid #00A9B5;
+}
+
+
+/* 메인 슬라이드 */
+#main-visual {
+    width: 100%;
+    height: calc(100vh - 180px);
+    margin-top: 180px;
+    overflow: hidden;
+    /* 헤더가 fixed이므로 겹치지 않게 여백 추가 (헤더 높이에 맞춰 조절) */
+}
+
+.slider-wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.slider {
+    display: flex;
+    width: 500%;
+    /* 이미지 5개이므로 500% */
+    height: 100%;
+    transition: margin-left 0.5s;
+}
+
+.slide {
+    width: 20%;
+    /* 100% / 5개 */
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 인기 상품 섹션 */
+#popular-products {
+    padding: 80px 5%;
+    /* 상하, 좌우 여백 */
+    text-align: center;
+}
+
+#popular-products h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 데스크탑: 4열 */
+    gap: 40px 20px;
+    /* 행, 열 간격 */
+}
+
+.product-list li {
+    text-align: left;
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    /* 이미지가 밖으로 나가지 않도록 */
+    margin-bottom: 15px;
+    height: 350px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.product-list li:hover .product-image img {
+    transform: scale(1.05);
+    /* 호버 시 이미지 확대 */
+}
+
+.add-cart-btn {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 35px;
+}
+
+.product-info .name {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.product-info .price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* PC 메뉴 스타일 */
+.pc-menu {
+    display: flex;
+    gap: 50px;
+    height: 100%;
+    align-items: center;
+}
+
+.pc-menu>li {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.pc-menu>li>a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    padding: 0 10px;
+}
+
+.pc-menu .dropdown {
+    position: absolute;
+    top: 60px;
+    /* 헤더 높이 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid #eee;
+    min-width: 160px;
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pc-menu li:hover .dropdown {
+    display: flex;
+}
+
+.pc-menu .dropdown li a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.pc-menu .dropdown li a:hover {
+    background: #f9f9f9;
+    color: #000;
+}
