@@ -26,6 +26,10 @@
         width: 30px;
     }
 
+    .off {
+        display: none;
+    }
+
     .product-list {
         grid-template-columns: repeat(2, 1fr);
         /* 모바일: 2열 */
