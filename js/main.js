@@ -13,6 +13,17 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         initMainScripts(); // 헤더가 없는 페이지라도 스크립트 실행
     }
+
+    // 푸터 로드
+    const footerInclude = document.querySelector("#footer-include");
+    if (footerInclude) {
+        fetch("footer.html")
+            .then((response) => response.text())
+            .then((data) => {
+                footerInclude.innerHTML = data;
+            })
+            .catch((error) => console.error("Error loading footer:", error));
+    }
 });
 
 function initMainScripts() {
