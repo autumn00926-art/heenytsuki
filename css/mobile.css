@@ -11,11 +11,15 @@
         justify-content: center;
     }
 
-    .logo {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+    .logoWrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cart {
+        position: relative;
+        left: 13px;
     }
 
     nav {
@@ -37,5 +41,14 @@
     .product-list {
         grid-template-columns: repeat(2, 1fr);
         /* 모바일: 2열 */
-    }   
+    }
+
+    .point-text {
+        position: relative;
+        left: 33%;
+        font-family: "Syne", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+    }
 }

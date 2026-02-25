@@ -62,6 +62,30 @@ body {
     z-index: 10;
 }
 
+.logo2 {
+    position: relative;
+    top: 10px;
+
+    /*animation 속성*/
+    animation-name: logoRotation;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes logoRotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+
 /* 3. 메뉴(로그인/카트)를 오른쪽 끝으로 밀기 */
 nav {
     margin-left: 0;
