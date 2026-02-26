@@ -818,6 +818,22 @@ nav {
     color: #fff;
 }
 
+.slogan-text {
+    position: relative;
+    left: 7%;
+}
+
+
+.slogan {
+    margin-top: 300px;
+}
+
+.about-img {
+
+    width: 100%;
+    overflow: hidden;
+}
+
 /* ============================
    푸터 스타일
    ============================ */
@@ -848,4 +864,8 @@ nav {
     font-size: 13px;
     line-height: 1.6;
     color: #999;
+}
+
+.on {
+    display: none;
 }
