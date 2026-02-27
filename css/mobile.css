@@ -56,3 +56,26 @@
         display: inline-block;
     }
 }
+
+/* 모바일 반응형 높이 조절 */
+@media (max-width: 768px) {
+    #main-visual {
+        margin-top: 100px;
+        height: auto;
+        /* 모바일에서 이미지 비율에 맞춰 높이 자동 조절 */
+    }
+
+    .slider-wrap,
+    .slider,
+    .slide {
+        height: auto;
+        /* 고정 높이 해제 */
+    }
+
+    .slide img {
+        height: auto;
+        /* 비율 유지 */
+        object-fit: contain;
+        /* 이미지 전체 표시 */
+    }
+}

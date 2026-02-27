@@ -354,36 +354,39 @@ nav {
 /* 메인 슬라이드 */
 #main-visual {
     width: 100%;
-    height: calc(100vh - 180px);
-    margin-top: 180px;
+    /* 비율 유지를 위해 높이 자동 설정 (잘림 방지) */
+    height: auto;
+    margin-top: 120px;
     overflow: hidden;
-    /* 헤더가 fixed이므로 겹치지 않게 여백 추가 (헤더 높이에 맞춰 조절) */
 }
 
 .slider-wrap {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .slider {
     display: flex;
-    width: 500%;
-    /* 이미지 5개이므로 500% */
-    height: 100%;
+    width: 400%;
+    /* 이미지 4개이므로 400% */
+    height: auto;
     transition: margin-left 0.5s;
 }
 
 .slide {
-    width: 20%;
-    /* 100% / 5개 */
-    height: 100%;
+    width: 25%;
+    /* 100% / 4개 */
+    height: auto;
 }
 
 .slide img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
+    display: block;
+    /* 이미지 하단 여백 제거 */
 }
+
+
 
 /* 인기 상품 섹션 */
 #popular-products {
