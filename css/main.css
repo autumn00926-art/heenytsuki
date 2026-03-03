@@ -184,7 +184,7 @@ nav {
     left: -100%;
     z-index: 9999;
     /*밖에 나가 있음(자기 크기만큼 나감)*/
-    top: 90px;
+    top: 100px;
     transition: all 0.5s;
 
     display: flex;
