@@ -872,3 +872,21 @@ nav {
 .on {
     display: none;
 }
+
+.fa-brands {
+    font-size: 40px;
+    color: #fff;
+
+}
+
+.insta {
+    background-color: #000;
+    margin-bottom: 30px;
+    color: #fff;
+
+}
+
+.insta a {
+    display: flex;
+    align-items: center;
+}

@@ -133,3 +133,80 @@ function initMainScripts() {
     });
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const selectElement = document.querySelector(".options select");
+  const detailsList = document.querySelector(".details");
+  const totalDisplay = document.querySelector(".total span:last-child");
+  const priceElement = document.querySelector(".product-info .price");
+
+  // 가격 텍스트에서 숫자만 추출 (예: "74,000원" -> 74000)
+  // 주의: 현재 HTML의 가격이 74,000원으로 되어 있어 이 값을 기준으로 계산됩니다.
+  const productPrice = parseInt(
+    priceElement.textContent.replace(/[^0-9]/g, ""),
+  );
+
+  selectElement.addEventListener("change", function () {
+    const selectedOption = this.value;
+
+    // 필수 옵션 안내 문구 선택 시 동작하지 않음
+    if (selectedOption.includes("OPTION")) return;
+
+    // 이미 추가된 옵션인지 확인
+    const existingItem = Array.from(detailsList.children).find(
+      (li) => li.querySelector(".option-name").textContent === selectedOption,
+    );
+
+    if (existingItem) {
+      alert("이미 선택된 옵션입니다.");
+      this.value = this.options[0].value; // 선택 초기화
+      return;
+    }
+
+    // 리스트 아이템 생성
+    const li = document.createElement("li");
+    li.innerHTML = `
+                    <div class="selected-item" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee;">
+                        <span class="option-name">${selectedOption}</span>
+                        <div class="qty-box" style="display: flex; align-items: center; gap: 5px;">
+                            <input type="number" class="qty-input" value="1" min="1" style="width: 40px; text-align: center;">
+                            <button class="remove-item" style="border: none; background: none; cursor: pointer;"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                `;
+    detailsList.appendChild(li);
+
+    updateTotal();
+    this.value = this.options[0].value; // 선택 초기화
+  });
+
+  // 수량 변경 및 삭제 이벤트 위임
+  detailsList.addEventListener("click", function (e) {
+    if (e.target.closest(".remove-item")) {
+      e.target.closest("li").remove();
+      updateTotal();
+    }
+  });
+
+  detailsList.addEventListener("input", function (e) {
+    if (e.target.classList.contains("qty-input")) {
+      // 수량이 1보다 작아지지 않도록 처리
+      if (e.target.value < 1) e.target.value = 1;
+      updateTotal();
+    }
+  });
+
+  function updateTotal() {
+    let totalQty = 0;
+    let totalPrice = 0;
+
+    const items = detailsList.querySelectorAll("li");
+    items.forEach((item) => {
+      const qty = parseInt(item.querySelector(".qty-input").value) || 0;
+      totalQty += qty;
+      totalPrice += qty * productPrice;
+    });
+
+    totalDisplay.textContent = `${totalPrice.toLocaleString()}원 (${totalQty}개)`;
+  }
+});
