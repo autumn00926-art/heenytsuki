@@ -245,6 +245,10 @@ nav {
     /* 왼쪽 여백을 주어 정렬 */
     background-color: #fff;
     height: 100%;
+    overflow-y: auto;
+    /* 메뉴가 길어질 경우 스크롤 */
+    padding-bottom: 50px;
+    /* 하단 여백 확보 */
 }
 
 /* SHOP 타이틀 스타일 */
