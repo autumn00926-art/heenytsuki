@@ -79,6 +79,7 @@ function initMainScripts() {
       mBtn.classList.toggle("active"); // 버튼 자체에 애니메이션 클래스 토글
       mGnb.classList.toggle("move");
       header.classList.toggle("on");
+      document.body.classList.toggle("no-scroll");
     });
   }
 
