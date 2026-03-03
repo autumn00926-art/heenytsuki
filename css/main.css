@@ -1,6 +1,7 @@
 html,
 body {
     max-width: 100%;
+    overflow-x: hidden;
 }
 
 .no-scroll {
@@ -351,7 +352,7 @@ nav {
 
 .point-text {
     position: relative;
-    left: 37%;
+    margin-left: 7%;
     font-family: "Syne", sans-serif;
     font-optical-sizing: auto;
     font-weight: 800;
