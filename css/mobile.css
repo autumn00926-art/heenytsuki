@@ -55,7 +55,22 @@
     .on {
         display: inline-block;
     }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .product-info {
+        position: static;
+    }
+
+    .sticky-content {
+        position: static;
+    }
+
 }
+
+
 
 /* 모바일 반응형 높이 조절 */
 @media (max-width: 768px) {

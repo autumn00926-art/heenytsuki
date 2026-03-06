@@ -24,16 +24,16 @@
 /* 오른쪽 정보 영역 */
 .product-info {
     flex: 0.8;
-    position: relative;
+    /* This container provides the track for the sticky element. */
 }
 
 /* 스크롤 시 고정되는 박스 */
 .sticky-content {
     position: sticky;
     top: 150px;
-    /* 상단에서 얼마큼 떨어져서 고정될지 설정 */
     height: fit-content;
 }
+
 
 /* 상세 스타일링 */
 h2 {
@@ -74,29 +74,4 @@ select {
 .details li {
     margin-bottom: 8px;
     cursor: pointer;
-}
-
-/* 반응형: 화면이 좁을 때 세로 정렬 */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding-bottom: 350px;
-        /* 하단 고정 패널이 가리는 만큼 여백 확보 */
-    }
-
-    .product-info {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        z-index: 100;
-        padding: 20px;
-        border-top: 1px solid #ddd;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .sticky-content {
-        position: static;
-    }
 }

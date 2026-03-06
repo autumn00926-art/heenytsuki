@@ -891,7 +891,7 @@ nav {
 }
 
 .fa-brands {
-    font-size: 40px;
+    font-size: 30px;
     color: #fff;
 
 }
@@ -900,6 +900,11 @@ nav {
     background-color: #000;
     margin-bottom: 30px;
     color: #fff;
+    height: 40px;
+    display: flex;
+
+    align-items: center;
+
 
 }
 

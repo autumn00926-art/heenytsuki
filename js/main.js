@@ -253,3 +253,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// 모바일 화면에서 상품 정보를 첫 번째 이미지 아래로 이동
+function moveProductInfoOnMobile() {
+  const container = document.querySelector(".container");
+  const productInfo = document.querySelector(".product-info");
+  const productImages = document.querySelector(".product-images");
+
+  if (!container || !productInfo || !productImages) return;
+
+  const images = productImages.querySelectorAll("img");
+  if (images.length === 0) return;
+
+  // 1200px 이하일 때 (모바일)
+  if (window.innerWidth <= 1200) {
+    if (productInfo.parentElement !== productImages) {
+      images[0].after(productInfo);
+      productInfo.style.padding = "30px 0"; // 위아래 간격 추가
+    }
+  } else {
+    // 데스크탑일 때 (원래 위치로 복구)
+    if (productInfo.parentElement === productImages) {
+      container.appendChild(productInfo);
+      productInfo.style.padding = "";
+    }
+  }
+}
+
+window.addEventListener("resize", moveProductInfoOnMobile);
+document.addEventListener("DOMContentLoaded", moveProductInfoOnMobile);
